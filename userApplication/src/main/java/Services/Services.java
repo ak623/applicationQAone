@@ -6,39 +6,33 @@ import java.util.Map;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
 import Account.Account;
 
 
 
 public class Services {
 	static int counter = 0;
-	static  HashMap<Integer, String> accountList = new HashMap<Integer, String>();	
+	static  HashMap<String, String> accountList = new HashMap<String, String>();	
 	public void addAccount(String account) {
-		accountList.put(counter, account);
+		accountList.put(Integer.toString(counter), account);
 		counter++;
 	}
 	
 	public void viewAccounts() {
 	    Iterator it = accountList.entrySet().iterator();
-	    while (it.hasNext()) {
-	        Map.Entry pair = (Map.Entry)it.next();
-	        System.out.println(pair.getKey() + " = " + pair.getValue());
-	    }
+	    conVertMapToJson();
 	}
 	
-	public void delete() {
-		Scanner scan = new Scanner(System.in);
-		System.out.println("Would you like to delete a user?");
-		String answer = scan.nextLine();
-			if(answer.equals("Y")) {
-				System.out.println("What is the account number??");
-				int accNo = Integer.parseInt(scan.nextLine());
-				accountList.remove(accNo);
-				delete();
-				}
-			System.out.println("Nothing was deleted");
-	}
 	
+	// Construct a JSONObject from a Map.
+	public void conVertMapToJson(){
+		Gson gson = new GsonBuilder().disableHtmlEscaping().create();
+		String jsonString = gson.toJson(accountList);
+		System.out.println(jsonString);
+	}
 
 }
 	
