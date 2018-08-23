@@ -3,6 +3,7 @@ package Services;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
+import java.util.NoSuchElementException;
 import java.util.Scanner;
 
 import Account.Account;
@@ -28,14 +29,21 @@ public class Services {
 	public void delete() {
 		Scanner scan = new Scanner(System.in);
 		System.out.println("Would you like to delete a user?");
-		String answer = scan.nextLine();
-		scan.close();
-		if(answer.equals("Y")) {
-			
-			System.out.println("What is the account number??");
-			String accNo = scan.nextLine();
-			accountList.remove(accNo);
-			delete();
+		String answer ="";
+		try
+		{
+			answer = scan.nextLine();
+			if(answer.equals("Y")) {
+				System.out.println("What is the account number??");
+				int accNo = Integer.parseInt(scan.nextLine());
+				accountList.remove(accNo);
+				scan.close();
+				delete();
+			}
+		}
+		catch(NoSuchElementException ex)
+		{
+			System.out.println("Nothing was deleted, same error still there");
 		}
 	}
 	

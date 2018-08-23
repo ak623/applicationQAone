@@ -19,7 +19,7 @@ public class App
     {
     	getAndAddUser();
     	service.viewAccounts();
-    	//service.delete();
+    	service.delete();
     }
     
 	public static void getAndAddUser() {
