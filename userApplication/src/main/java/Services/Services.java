@@ -29,22 +29,14 @@ public class Services {
 	public void delete() {
 		Scanner scan = new Scanner(System.in);
 		System.out.println("Would you like to delete a user?");
-		String answer ="";
-		try
-		{
-			answer = scan.nextLine();
+		String answer = scan.nextLine();
 			if(answer.equals("Y")) {
 				System.out.println("What is the account number??");
 				int accNo = Integer.parseInt(scan.nextLine());
 				accountList.remove(accNo);
-				scan.close();
 				delete();
-			}
-		}
-		catch(NoSuchElementException ex)
-		{
-			System.out.println("Nothing was deleted, same error still there");
-		}
+				}
+			System.out.println("Nothing was deleted");
 	}
 	
 

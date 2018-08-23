@@ -32,8 +32,7 @@ public class App
 	    account.AccountManagement(firstname, surename);
 	    System.out.println("would you like to add more accounts? Y for Yes/ N for No");
 	    String answer = scan.nextLine();
-	    checkIfMoreAccountShouldBeAdded(answer);
-	    scan.close(); 
+	    checkIfMoreAccountShouldBeAdded(answer); 
 	}
 	
 	public static void checkIfMoreAccountShouldBeAdded(String answer) {
