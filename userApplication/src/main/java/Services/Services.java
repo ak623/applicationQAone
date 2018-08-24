@@ -36,7 +36,6 @@ public class Services {
 	}
 
 	public int getCountWithNameOf(String name) {
-		accountList.put("1", "Ashok");
 		int counter = 0;
 		Iterator it = accountList.entrySet().iterator();
 	    while (it.hasNext()) {
@@ -49,7 +48,6 @@ public class Services {
 	}
 	
 	public int getCountWithNameOf2(String name) {
-		accountList.put("1", "Ashok");
 		int test = (int) accountList.values().stream().filter( v -> v.contains(name)).count();
 		//accountList.forEach((k, v) -> System.out.println(v));
 		return test;

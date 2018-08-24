@@ -12,8 +12,10 @@ public class AccountTest {
 	@Test
 	public void countNameTest() {
 		Services service = new Services();
+		App app = new App();
+		app.getAndAddUser();
 		int numberOfSameName = service.getCountWithNameOf2("Ashok");
-		assertEquals(0 ,numberOfSameName);
+		assertEquals(1 ,numberOfSameName);
 	}
 	
 }
